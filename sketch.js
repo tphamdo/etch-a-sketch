@@ -37,15 +37,22 @@ function clearChildren() {
 
 function addDivEventListeners(div) {
     div.addEventListener('mouseenter', () => {
-        div.classList.add("red")
-    });
-    div.addEventListener('mouseleave', () => {
-        setTimeout(() => {div.classList.remove("red");}, 40);
+        const curBgndColor = window.getComputedStyle(div).getPropertyValue("background-color");
+        const regex = /rgba\((.*), (.*), (.*), (.*)\)/;
+        const mtch = regex.exec(curBgndColor)
+        const curOpacity = (mtch && mtch.length == 5)? Number(mtch[4]) : 1;
+        console.log(curOpacity);
+        div.style.backgroundColor = getRandRGBA(curOpacity + 0.2);
     });
 }
 
+function getRandRGBA(opacity=0) {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b},${Math.min(1,opacity)})`
+}
 
-// button
 button.addEventListener("click", () => {
     let rows = prompt("Enter number of rows/cols for the grid: (max: 100)", DEFAULT_ROWS);
     rows = parseInt(rows)
@@ -56,3 +63,4 @@ button.addEventListener("click", () => {
     console.log(rows);
     updateGridRows(rows);
 });
+
