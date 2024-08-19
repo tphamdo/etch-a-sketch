@@ -1,0 +1,21 @@
+button {
+  margin: 10px;
+}
+.container {
+  margin: 10px;
+  height: 800px;
+  width: 800px;
+  border: 1px solid blue;
+  display: flex;
+  flex-wrap: wrap
+}
+
+.container div {
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+.red {
+  background-color: red;
+}
+
