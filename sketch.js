@@ -1,4 +1,4 @@
-const DEFAULT_ROWS = 40
+const DEFAULT_ROWS = 20
 const GRID_HEIGHT = 800 //px
 const container = document.querySelector(".container");
 const button = document.querySelector("button");
