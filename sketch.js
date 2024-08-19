@@ -41,7 +41,6 @@ function addDivEventListeners(div) {
         const regex = /rgba\((.*), (.*), (.*), (.*)\)/;
         const mtch = regex.exec(curBgndColor)
         const curOpacity = (mtch && mtch.length == 5)? Number(mtch[4]) : 1;
-        console.log(curOpacity);
         div.style.backgroundColor = getRandRGBA(curOpacity + 0.2);
     });
 }
@@ -60,7 +59,6 @@ button.addEventListener("click", () => {
     rows = Math.min(100,rows)
     rows = Math.max(1,rows)
 
-    console.log(rows);
     updateGridRows(rows);
 });
 
